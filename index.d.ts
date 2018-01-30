@@ -1560,17 +1560,12 @@ declare module '@amaas/amaas-core-sdk-js' {
       function insert(
         {
           AMId,
-          businessDate: string,
+          businessDate,
           data
         }: {
           AMId: number
           businessDate: string,
-          data: {
-            asseetManagerId: string,
-            assetId: string,
-            businessDate: string,
-            price: string
-          }
+          data: any
         },
         callback?: Function
       ): Promise<any> | void
@@ -1584,12 +1579,7 @@ declare module '@amaas/amaas-core-sdk-js' {
           AMId: number
           businessDate: string,
           assetIds: string,
-          data: {
-            asseetManagerId: string,
-            assetId: string,
-            businessDate: string,
-            price: string
-          }
+          data: any
         },
         callback?: Function
       ): Promise<any> | void
@@ -1638,16 +1628,13 @@ declare module '@amaas/amaas-core-sdk-js' {
           query: {
             activeStates: boolean
           }
-          AMId: number
-          businessDate: string
-          assetIds: string
         },
         callback?: Function
       ): Promise<ICurve[]> | void
       function insert(
         {
           AMId,
-          businessDate: string,
+          businessDate,
           data
         }: {
           AMId: number
@@ -1683,25 +1670,19 @@ declare module '@amaas/amaas-core-sdk-js' {
             businessDateEnd: string
             assetIds: string
             activeStates: boolean
-          }
+          },
+          callback?: Function
         }
-      )
+      ): Promise<IFXRate> | void
       function insert(
         {
           AMId,
-          businessDate: string,
-          data: string
+          businessDate,
+          data
         }: {
           AMId: number
           businessDate: string,
-          data: {
-            assetManagerId: string,
-            assetId: string,
-            businessDate: string,
-            rateTimestamp: string,
-            rateType: string,
-            rate: string
-          }
+          data: any
         },
         callback?: Function
       ): Promise<any> | void

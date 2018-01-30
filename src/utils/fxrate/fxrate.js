@@ -1,4 +1,4 @@
-import { retrieveData } from '../network'
+import { retrieveData, insertData, putData } from '../network'
 
 /**
  * @function retrieve
@@ -32,11 +32,12 @@ export function retrieve({ AMId, query }, callback) {
   promise.catch(error => callback(error))
 }
 
-export function insert({ AMID, businessDate }, callback) {
+export function insert({ AMId, businessDate, data }, callback) {
   const params = {
     AMaaSClass: 'fxRate',
     AMId,
-    resourceId: `${businessDate}`
+    resourceId: `${businessDate}`,
+    data: JSON.parse(JSON.stringify(data || {}))
   }
   let promise = insertData(params).then(result => {
     if (typeof callback === 'function') {
